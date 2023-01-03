@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+.main{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255,255,255,0.1);
+}
+
+.navigation{
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 100px;
+
+    cursor: pointer;
+}
+
+
+
+.navigation span{
+    position: absolute;
+    
+    width: 20px;
+    height: 20px;
+    background-color: white;
+
+    transform: translate(
+        calc(35px * var(--x)), 
+        calc(35px * var(--y))
+    );
+
+    transition: all .5s;
+    transition-delay: calc(.05s * var(--i));
+}
+
+.navigation span ion-icon{
+    display: none;
+
+}
+
+.navigation.active span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    transform: translate(
+        calc(97.5px * var(--x)), 
+        calc(97.5px * var(--y))
+    );
+
+    background-color: rgba(255,255,255,0.3);
+}   
+
+.navigation.active span ion-icon{
+    display: inline;
+    font-size: 40px;
+
+    color: white;
+
+    transition: all .5s;
+
+}
+
+.navigation.active span:hover ion-icon{
+    color: #00FFF0;
+    filter: drop-shadow(0 0 2px #00FFF0)
+            drop-shadow(0 0 5px #00FFF0)
+            drop-shadow(0 0 15px #00FFF0)
+    ;
+}
+
+.close{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    background-color: white;
+
+    transition: all .5s;
+    transition-delay: .4s;
+}
+
+.close ion-icon{
+    display: none;
+}
+
+.navigation.active ~ .close{
+    width: 60px;
+    height: 60px;
+    pointer-events: initial;
+
+    background-color: #00FFF0;
+}
+
+.navigation.active ~ .close ion-icon{
+    display: inline;
+    font-size: 30px;
+    transition: font-size .5s;
+    color: white;
+}
